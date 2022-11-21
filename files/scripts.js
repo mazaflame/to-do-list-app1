@@ -5,7 +5,7 @@ function newItem(){
        let li = $('<li></li>');
        let inputValue = $('input').val();
       let text=document.createTextNode(inputValue);
-      li.append('text');
+      li.append(text);
     
     
        if (inputValue === '') {
@@ -20,14 +20,14 @@ function newItem(){
              li.toggle("strike");
          }
     
-         $on("dblclick",crossOut);
+         li.on("dblclick",crossOut);
     
      //3(i). Adding the delete button "X": 
        let crossOutButton = $("<crossOutButton></crossOutButton>");
          crossOutButton.append(document.createTextNode("X"));
          li.append(crossOutButton);
     
-         crossOutButton.$("click", deleteListItem);
+         crossOutButton.on("click", deleteListItem);
      //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
        function deleteListItem(){
              li.addClass("delete")
